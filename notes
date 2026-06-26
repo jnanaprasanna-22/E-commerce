@@ -1,0 +1,17 @@
+for creating anither products like clothes shoes and so on first add the image file in assets of partocular products then create the data in of particular product in js
+next create the file jsx in components and copy paste the elements which we had done for phones, laptops... then import the new product in products.jsx this helps to add the images in landingpage of the website
+now in app.css we can style the products as we want
+
+
+steps we done
+
+1)Navbar
+2)products
+3)Collections
+4)Product Collections
+5)Filter Products
+6)Routing
+7)Product Detail Page
+8)Add to Cart
+9)Responsiveness
+10)Hosting
