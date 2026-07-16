@@ -1,46 +1,64 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
-import { phonesData } from '../Data/phones'
-import { headphonesData } from '../Data/headphones'
-import { laptopsData } from '../Data/laptops'
-import { watchesData } from '../Data/watches'
-import { camerasData } from '../Data/cameras'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+
+import ProductCard from "./ProductCard";
+
+import { phonesData as phones } from "../Data/phones";
+import { laptopsData as laptops } from "../Data/laptops";
+import { camerasData as cameras } from "../Data/cameras";
 
 const FeaturedProducts = () => {
 
-  const featured = [
-    ...phonesData.slice(0, 2),
-    ...headphonesData.slice(0, 2),
-    ...laptopsData.slice(0, 2),
-    ...watchesData.slice(0, 2),
-    ...camerasData.slice(0, 2)
-  ]
+  const featuredProducts = [
+    { ...phones[0], category: "phones" },
+    { ...laptops[0], category: "laptops" },
+    { ...cameras[0], category: "cameras" },
+  ];
 
   return (
-    <div className="featured-section">
-      <h2>🔥 Featured Products</h2>
 
-      <div className="featured-container">
-        {featured.map((item) => (
-          <Link
-            key={item.id}
-            to={`/product/${item.id}`}
-            className="featured-card"
-          >
-            <img
-              src={item.image}
-              alt={item.model}
-            />
+    <section className="featured-section">
 
-            <h3>{item.model}</h3>
+      <h2 className="featured-title">
+        ⭐ Featured Products
+      </h2>
 
-            <p>${item.price}</p>
-          </Link>
+      <p className="featured-subtitle">
+        Discover our most popular electronics chosen by thousands of customers.
+      </p>
+
+      <div className="featured-grid">
+
+        {featuredProducts.map((item) => (
+
+          <ProductCard
+
+            key={`${item.category}-${item.id}`}
+            item={item}
+            category={item.category}
+
+          />
+
         ))}
-      </div>
-    </div>
-  )
-}
 
-export default FeaturedProducts
+      </div>
+
+      <div className="featured-btn">
+
+        <Link to="/phones">
+
+          <button>
+            View All Products
+          </button>
+
+        </Link>
+
+      </div>
+
+    </section>
+
+  );
+};
+
+export default FeaturedProducts;

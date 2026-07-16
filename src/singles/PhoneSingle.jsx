@@ -19,42 +19,48 @@ const PhoneSingle = () => {
   }
 
   return (
-    <>
-      <Navbar />
+      <>
+        <Navbar />
 
-      <div className="ind-section">
+        <div className="product-container">
 
-        <div className="ind-image">
-          <img
-            src={product.image}
-            alt={product.model}
-          />
-        </div>
-
-        <div className="ind-details space">
-
-          <div className="ind-company">
-            <h2>{product.company}</h2>
+          <div className="details-image">
+            <img
+              src={product.image}
+              alt={product.model}
+            />
           </div>
 
-          <div className="ind-model space">
-            <h4>{product.model}</h4>
-          </div>
+          <div className="details-info">
 
-          <div className="ind-price space">
-            <h2>${product.price}</h2>
-          </div>
+            <h1>{product.company}</h1>
 
-          <div className="ind-desc space">
+            <h2>{product.model}</h2>
+
+            <h3>₹ {product.price}</h3>
+
             <p>{product.Description}</p>
+
+            <div className="details-buttons">
+
+              <button
+                className="cart-btn"
+                onClick={() =>
+                  addToCart({ ...product, category: "phones" })
+                }
+              >
+                Add To Cart
+              </button>
+
+              <button className="buy-btn">
+                Buy Now
+              </button>
+
+            </div>
+
           </div>
 
-          <button onClick={() => addToCart({...product, category: 'phones'})}>Add To Cart</button>
-
-          <button>Buy Now</button>
         </div>
-
-      </div>
     </>
   )
 }

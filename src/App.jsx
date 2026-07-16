@@ -11,6 +11,13 @@ import WatchesPage from './stores/Pages/Watches'
 import ProductDetails from './stores/Pages/ProductDetails'
 import CartPage from './stores/Pages/CartPage'
 import CheckoutPage from './stores/Pages/CheckoutPage'
+
+const NotFound = () => (
+  <div style={{ padding: '3rem', textAlign: 'center' }}>
+    <h1>404 Page Not Found</h1>
+  </div>
+)
+
 const App = () => {
   return (
     <div>
@@ -27,8 +34,8 @@ const App = () => {
         <Route path="/watches/:id" element={<ProductDetails />} />
         <Route path="/cameras/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="*" element={<h1>404 Page Not Found</h1>} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
